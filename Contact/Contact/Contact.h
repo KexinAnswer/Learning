@@ -63,7 +63,7 @@ void ShowContact(const Contact* con);
 void SearchContact(const Contact* con);
 void ChangeContact(Contact* con);
 void SortContact(Contact* con);
-
+void DistoryContact(Contact* con);
 
 
 

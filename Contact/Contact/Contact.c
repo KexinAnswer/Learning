@@ -8,7 +8,7 @@ int FindSign(const Contact* con,char* name)
 
 	for (i = 0; i < con->sz; i++)
 	{
-		if (strcmp(con->data[i].name,name) == 0)
+		if (strcmp  (con->data[i].name,name) == 0)
 		{
 			return i;
 		}
@@ -191,30 +191,42 @@ void ChangeContact(Contact* con)
 
 void SortContact(Contact* con)
 {
+
 	int i = 0;
 	int j = 0;
 	int flag = 1;
 	PeoInfo tmp;
-	for (i = 0; i < con->sz; i++)
+	for (i = 0; i < con->sz - 1; i++)
 	{
 		for (j = 0; j < con->sz - i - 1; j++)
 		{
-			if (con->data[j].name < con->data[j+1].name)
+			if (strcmp(con->data[j].name , con->data[j + 1].name) > 0 )
 			{
 				tmp = con->data[j];
 				con->data[j] = con->data[j + 1];
 				con->data[j + 1] = tmp;
 				flag = 0;
 			}
-			if (flag == 1)
-			{
-				return;
-			}
+			
+		}
+		if (flag == 1)
+		{
+			return;
 		}
 	}
 	printf("排序成功！\n");
 
 }
+
+void DistoryContact(Contact* con)
+{
+	free(con->data);
+	con->data = NULL;
+	con->capacity = 0;
+	con->sz = 0;
+	printf("释放内存成功\n");
+}
+
 
 //void free(Contact* con)
 //{

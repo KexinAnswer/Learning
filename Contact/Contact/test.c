@@ -8,7 +8,7 @@ void menu()
 	printf("***        1.Add       2.Detele     ***\n");
 	printf("***        3.Search    4.Change     ***\n");
 	printf("***        5.Show      6.Sort       ***\n");
-	printf("***              7.Exit             ***\n");
+	printf("***              0.Exit             ***\n");
 	printf("***************************************\n");
 
 
@@ -56,8 +56,7 @@ void test()
 			break;
 			//释放动态内存空间
 		case EXIT:
-			free(con.data);
-			con.data = NULL;
+			DistoryContact(&con);
 			printf("退出程序！\n");
 			break;
 		default:
