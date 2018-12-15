@@ -64,6 +64,8 @@ void SearchContact(const Contact* con);
 void ChangeContact(Contact* con);
 void SortContact(Contact* con);
 void DistoryContact(Contact* con);
+void SaveContact(Contact* con);
+void LoadContact(Contact* con);
 
 
 

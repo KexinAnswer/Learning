@@ -56,6 +56,7 @@ void test()
 			break;
 			//释放动态内存空间
 		case EXIT:
+			SaveContact(&con);
 			DistoryContact(&con);
 			printf("退出程序！\n");
 			break;

@@ -2,6 +2,26 @@
 
 #include "Contact.h"
 
+void CheckCapacity(Contact* con)
+{
+	//relloc void* 需要有指针接受
+	//relloc()中，第二个参数是新的内存空间
+	PeoInfo *ptr = realloc(con->data, (con->capacity + 2) * sizeof(PeoInfo));
+	if (ptr == NULL)
+	{
+		printf("%s\n", strerror(errno));
+		return;
+	}
+	else
+	{
+		con->data = ptr;
+		con->capacity += 2;
+		printf("增容成功！\n");
+	}
+}
+
+
+
 int FindSign(const Contact* con,char* name)
 {
 	int i = 0;
@@ -20,6 +40,7 @@ int FindSign(const Contact* con,char* name)
 
 void Init(Contact* con)
 {
+	
 	//开辟动态内存空间
 	PeoInfo* ptr = (PeoInfo*)malloc(2 * sizeof(PeoInfo));
 	if (ptr == NULL)
@@ -35,6 +56,7 @@ void Init(Contact* con)
 	con->sz = 0;
 	//初始化容量
 	con->capacity = 2;
+	LoadContact(con);
 }
 
 void AddContact(Contact* con)
@@ -43,20 +65,7 @@ void AddContact(Contact* con)
 	//判断动态内存是否够用
 	if (con->sz == con->capacity)
 	{
-		//relloc void* 需要有指针接受
-		//relloc()中，第二个参数是新的内存空间
-		PeoInfo *ptr = realloc(con->data, (con->capacity+2) * sizeof(PeoInfo));
-		if (ptr == NULL)
-		{
-			printf("%s\n", strerror(errno));
-			return;
-		}
-		else
-		{
-			con->data = ptr;
-			con->capacity += 2;
-			printf("增容成功！\n");
-		}
+		CheckCapacity(con);
 	}
 
 	//输入信息
@@ -77,7 +86,6 @@ void AddContact(Contact* con)
 
 	con->sz++;
 
-	
 		
 	printf("添加成功！\n");
 
@@ -227,9 +235,49 @@ void DistoryContact(Contact* con)
 	printf("释放内存成功\n");
 }
 
+void SaveContact(Contact* con)
+{
+	int i = 0;
+	FILE* pfOut = fopen("Contact.dat", "wb");
+	if (pfOut == NULL)
+	{
+		perror("File a txt for write ");
+		system("pause");
+		return;
+	}
+	for (i = 0; i < con->sz; i++)
+	{
+		fwrite(con->data + i, sizeof(PeoInfo), 1, pfOut);
+		i++;
+	}
 
-//void free(Contact* con)
-//{
-//	free(con->data);
-//	con->data = NULL;
-//}
+	fclose(pfOut);
+	pfOut = NULL;
+	printf("保存成功\n");
+}
+
+void LoadContact(Contact* con)
+{
+	int ret = 0;
+	PeoInfo tmp;
+	FILE* pfIn = fopen("Contact.dat", "rb");
+	if (pfIn == NULL)
+	{
+		perror("File a txt for read ");
+		system("pause");
+		return;
+	}
+	while (fread(&tmp, sizeof(PeoInfo), 1, pfIn))
+	{
+		
+		if (con->sz == con->capacity)
+		{
+			CheckCapacity(con);
+		}
+		con->data[con->sz] = tmp;
+		con->sz++;
+	}
+
+	fclose(pfIn);
+	pfIn = NULL;
+}
