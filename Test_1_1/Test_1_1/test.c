@@ -116,8 +116,9 @@ RListNode* RListCopy(RListNode* head)
 {
 	RListNode* cur = head;
 	RListNode* Copy_cur = (RListNode*)malloc(sizeof(head));//ÓÐÎÊÌâ
+	RListNode* Copy_head = Copy_cur;
 	RListNode* next = cur->next;
-	RListNode* Copy_next = Copy->next;
+	RListNode* Copy_next = Copy_cur->next;
 
 	while (cur->next != NULL)
 	{
@@ -129,15 +130,51 @@ RListNode* RListCopy(RListNode* head)
 	}
 	Copy_cur->next = NULL;
 
-	while (cur->next != NULL)
+	while (cur != NULL)
 	{
 		next = cur->next;
 		Copy_next = Copy_cur->next;
+
 		cur->next = Copy_cur;
-		Copy_cur->next = next;
-		Copy_cur->next
+		Copy_cur->next = cur->next;
+
+		cur = next;
+		Copy_cur = Copy_next;
 
 	}
 
+	cur = head;
+	Copy_cur = Copy_head;
+
+	while(cur != NULL)
+	{
+		Copy_cur->random = cur->random->next;
+
+		cur = cur - next;
+		Copy_cur = Copy_cur->next;
+
+	}
+
+	cur = head;
+	Copy_cur = Copy_head;
+
+	while (cur != NULL)
+	{
+		cur->next = Copy_cur->next;
+		Copy_cur->next = cur->next->next;
+
+		cur = cur->next;
+		if (cur->next != NULL) 
+		{
+			Copy_cur = Copy_cur->next;
+		}
+	}
+
+	Copy_cur->next = NULL;
+
+	return Copy_head;
+
+
+	
 
 }
