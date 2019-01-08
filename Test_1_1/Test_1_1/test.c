@@ -8,6 +8,12 @@ struct Vector {
 
 void VectorPushFront(struct Vector* vector, int val)
 {
+	assert(vector != NULL);
+	if (size >= 100)
+	{
+		printf("顺序表满了！\n");
+		return;
+	}
 	for (int i = 0; i < vector->size; i++)
 	{
 		vector[i + 1] = vector[i];
@@ -112,10 +118,23 @@ typedef struct RListNode {
 	RListNode* next;
 }	RListNode;
 
+
+int Length(RListNode *head)
+{
+	int count = 0;
+	for (RListNode *cur = head; cur != NULL; cur = cur->next;)
+	{
+		count++;
+	}
+
+	return count;
+}
+
 RListNode* RListCopy(RListNode* head)
 {
+	int length = Length(head);
 	RListNode* cur = head;
-	RListNode* Copy_cur = (RListNode*)malloc(sizeof(head));//有问题
+	RListNode* Copy_cur = (RListNode*)malloc(sizeof(RListNode)*length);//有问题
 	RListNode* Copy_head = Copy_cur;
 	RListNode* next = cur->next;
 	RListNode* Copy_next = Copy_cur->next;
@@ -173,8 +192,5 @@ RListNode* RListCopy(RListNode* head)
 	Copy_cur->next = NULL;
 
 	return Copy_head;
-
-
-	
 
 }
