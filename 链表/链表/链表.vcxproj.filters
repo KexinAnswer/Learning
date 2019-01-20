@@ -15,15 +15,18 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.c">
+    <ClCompile Include="test.c">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="test.c">
+    <ClCompile Include="Main.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DList.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

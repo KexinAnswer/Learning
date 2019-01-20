@@ -183,8 +183,8 @@ void SListEraseAfter(SList *list, SListNode *pos)
 	next = NULL;
 
 }
-
-void SListRemove(SList *list, SLDataType x)
-{
-
-}
+//
+//void SListRemove(SList *list, SLDataType x)
+//{
+//
+//}
