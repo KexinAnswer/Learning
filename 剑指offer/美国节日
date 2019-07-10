@@ -1,0 +1,139 @@
+#include <iostream>
+/*
+基姆拉尔森计算公式
+W= (d+2*m+3*(m+1)/5+y+y/4-y/100+y/400+1) mod 7
+在公式中d表示日期中的日数，m表示月份数，y表示年数。
+注意：在公式中有个与其他公式不同的地方：
+把一月和二月看成是上一年的十三月和十四月，例：如果是2004-1-10则换算成：2003-13-10来代入公式计算。
+*/
+
+
+int CaculateWeekDay(int y, int m, int d)
+{
+	if (m == 1 || m == 2) //把一月和二月换算成上一年的十三月和是四月
+	{
+		m += 12;
+		y--;
+	}
+	int Week = (d + 2 * m + 3 * (m + 1) / 5 + y + y / 4 - y / 100 + y / 400) % 7;
+	return Week + 1;
+	/*
+	switch(Week)
+	{
+		case 0: PrintfDay(y,m,d); cout << "是星期一" << endl; break;
+		case 1: PrintfDay(y,m,d); cout << "是星期二" << endl; break;
+		case 2: PrintfDay(y,m,d); cout << "是星期三" << endl; break;
+		case 3: PrintfDay(y,m,d); cout << "是星期四" << endl; break;
+		case 4: PrintfDay(y,m,d); cout << "是星期五" << endl; break;
+		case 5: PrintfDay(y,m,d); cout << "是星期六" << endl; break;
+		case 6: PrintfDay(y,m,d); cout << "是星期日" << endl; break;
+	}
+	*/
+}
+
+
+void NewYear(int year) {
+	//1月1日 元旦
+	std::cout << year << "-01-01" << std::endl;
+}
+
+void Martin_Memorial(int year) {
+	//1月的第三个星期一：马丁·路德·金纪念日
+	int day = 0;
+	int Week = CaculateWeekDay(year, 1, 1);
+	if (Week == 1) {
+		day += 15;
+	}
+	else {
+		day = 21 - Week + 2;
+	}
+	std::cout << year << "-01-" << day << std::endl;
+}
+
+void President_Day(int year) {
+	//2月的第三个星期一：总统节
+	int day = 0;
+	int Week = CaculateWeekDay(year, 2, 1);
+	if (Week == 1) {
+		day += 15;
+	}
+	else {
+		day = 21 - Week + 2;
+	}
+	std::cout << year << "-02-" << day << std::endl;
+}
+
+void Will_Die(int year) {
+	//5月的最后一个星期一：阵亡将士纪念日
+	int day = 0;
+	int Week = CaculateWeekDay(year, 5, 31);
+	if(Week == 1){
+        day = 31;
+    } else {
+        day = 31 - Week + 1; 
+    }
+	std::cout << year << "-05-" << day << std::endl;
+}
+
+void National_Day(int year) {
+	//7月4日：美国国庆
+	std::cout << year << "-07-04" << std::endl;
+}
+
+void May_Day(int year) {
+	//9月的第一个星期一：劳动节
+	int day = 0;
+	int Week = CaculateWeekDay(year, 9, 1);
+	if (Week == 1) {
+		day = 1;
+	}
+	else {
+		day = 7 - Week + 2;
+	}
+	std::cout << year << "-09-0" << day << std::endl;
+}
+
+void Thanksgiving_Day(int year) {
+	//11月的第四个星期四：感恩节
+	int day = 0;
+	int Week = CaculateWeekDay(year, 11, 1);
+	if (Week == 4) {
+		day = 22;
+	}
+	else if (Week > 4){
+		day = 28 - Week + 5;
+	} else {
+        day = 21 - Week + 5;
+    }
+	std::cout << year << "-11-" << day << std::endl;
+}
+
+void Christmas_Day(int year) {
+	//12月25日：圣诞节
+	std::cout << year << "-12-25" << std::endl;
+}
+
+int main() {
+	int year;
+	while (std::cin >> year) {
+		//1月1日 元旦
+		NewYear(year);
+		//1月的第三个星期一：马丁·路德·金纪念日
+		Martin_Memorial(year);
+		//2月的第三个星期一：总统节
+		President_Day(year);
+		//5月的最后一个星期一：阵亡将士纪念日
+		Will_Die(year);
+		//7月4日：美国国庆
+		National_Day(year);
+		//9月的第一个星期一：劳动节
+		May_Day(year);
+		//11月的第四个星期四：感恩节
+		Thanksgiving_Day(year);
+		//12月25日：圣诞节
+		Christmas_Day(year);
+
+	}
+
+	return 0;
+}
