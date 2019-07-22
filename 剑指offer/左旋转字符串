@@ -1,0 +1,57 @@
+左旋转字符串
+
+题目描述
+汇编语言中有一种移位指令叫做循环左移（ROL），现在有个简单的任务，
+就是用字符串模拟这个指令的运算结果。对于一个给定的字符序列S，
+请你把其循环左移K位后的序列输出。例如，字符序列S=”abcXYZdef”,
+要求输出循环左移3位后的结果，即“XYZdefabc”。是不是很简单？OK，搞定它！
+
+链接：https://www.nowcoder.com/questionTerminal/12d959b108cb42b1ab72cef4d36af5ec
+来源：牛客网
+
+class Solution {
+public:
+    string LeftRotateString(string str, int n) {
+        if(str.empty()){
+            return "";
+        }
+        if(n == 0){
+            return str;
+        }
+        n = n%str.size();
+        string sub = str.substr(0,n);
+        str += sub;
+        return str.substr(n);
+    }
+};
+
+
+
+
+原理：YX = (XTY T)T
+
+class Solution {
+public:
+    string LeftRotateString(string str, int n) 
+    {
+      int len = str.size();
+        if(len == 0) return str;
+        n %= len;
+        for(int i = 0, j = n - 1; i < j; ++i, --j) swap(str[i], str[j]);
+        for(int i = n, j = len - 1; i < j; ++i, --j) swap(str[i], str[j]);
+        for(int i = 0, j = len - 1; i < j; ++i, --j) swap(str[i], str[j]);
+        return str;
+    }
+};
+
+
+//按照剑指offer书上的方法，两次翻转字符串。
+class Solution {
+public:
+    string LeftRotateString(string str, int n) {
+        reverse(str.begin(), str.end());
+        reverse(str.begin(), str.begin() + str.size() - n);
+        reverse(str.begin() + str.size() - n, str.end());
+        return str;
+    }
+};
