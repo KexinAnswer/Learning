@@ -4,6 +4,8 @@
 请你输出斐波那契数列的第n项（从0开始，第0项为0）。
 n<=39
 
+非递归：
+
 class Solution {
 public:
     int Fibonacci(int n) {
@@ -26,5 +28,35 @@ public:
             n--;
         }
         return Feb;
+    }
+};
+
+递归：
+class Solution {
+public:
+    int Fibonacci(int n) {
+        if(n == 1)
+            return 1;
+        if(n == 2){
+            return 2;
+        }
+        
+        return Fibonacci(n-1)+ Fibonacci(n-2);
+    }
+};	
+
+
+动态规划：
+class Solution {
+public:
+    int Fibonacci(int n) {
+        vector<int> v;
+        v.resize(n+1);
+        v[1] = 1;
+        v[2] = 1;
+        for(int i = 3; i <= n; ++i){
+            v[i] = v[i-1] + v[i-2];
+        }
+        return  v[n];
     }
 };
