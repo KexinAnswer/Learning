@@ -1,0 +1,33 @@
+错排
+
+
+
+#include <vector>
+#include <iostream>
+
+int errAtum(int num){
+  if(num == 1){
+    return 0;
+  }
+  if(num == 2){
+    return 1;
+  }
+  return (num-1) * (errAtum(num-1) + errAtum(num-2));
+}
+
+
+int main()
+{
+  int num;
+  while(std::cin >> num){
+    std::vector<int> erratum(num + 1, 0);
+    erratum[1] = 0;
+    erratum[2] = 1;
+    for(int i = 3; i <= num; ++i){
+      erratum[i] = (i-1) * (erratum[i-1] + erratum[i-2]);
+    }
+    std::cout << errAtum(num) << std::endl;
+    std::cout << erratum[num] << std::endl;
+  }
+  return 0;
+}
