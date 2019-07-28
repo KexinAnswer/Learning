@@ -1,0 +1,47 @@
+链表中环的入口结点
+
+给一个链表，若其中包含环，
+请找出该链表的环的入口结点，否则，输出null。
+
+
+/*
+struct ListNode {
+    int val;
+    struct ListNode *next;
+    ListNode(int x) :
+        val(x), next(NULL) {
+    }
+};
+*/
+class Solution {
+public:
+    ListNode* EntryNodeOfLoop(ListNode* pHead)
+    {
+        if(pHead == NULL){
+            return NULL;
+        }
+        ListNode* slow = pHead;
+        ListNode* fast = pHead;
+        // 快指针每次走两步
+        // 指针每次走一步
+        // 相遇时就是环的入口节点
+        do{
+            if(fast == NULL){
+                return NULL;
+            }
+            fast = fast->next;
+            if( fast == NULL || slow == NULL){
+                return NULL;
+            }
+            slow = slow->next;
+            fast = fast->next;
+        }while(slow != fast);
+        ListNode* cur = pHead;
+        ListNode* p = slow;
+        while(p != cur){
+            p = p->next;
+            cur = cur->next;
+        }
+        return cur;
+    }
+};
