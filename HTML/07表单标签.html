@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表单标签</title>
+</head>
+<body>
+    <!--
+        input
+        type = "text" 文本输入框
+        type = "password" 密码输入框
+        type = "radio" 单选按钮 
+        type = "checkbox" 复选框
+        type = "hidden" 隐藏域(没有有效果, 可以携带数据)
+        type = "button" value="默认值" 普通按钮 
+        type = "file" 上传文件 
+        type = "rest" 重置按钮 
+        type = "data" 填写日期(h5提供) 
+        
+        select 下拉菜单 应用场景: 省市联动
+            option:下拉选项
+        textarea : 文本域
+    -->
+<form>
+用户名<input type="text" name="username"> <br>
+密码<input type="password" name="password"> <br>
+性别
+<input type="radio" value="男" name="gender"> 男
+<input type="radio" value="女" name="gender">女 <br>
+爱好
+<input type="checkbox" value="唱" name="hobit"> 唱
+<input type="checkbox" value="跳" name="hobit"> 跳
+<input type="checkbox" value="rap" name="hobit"> rap
+<input type="checkbox" value="篮球" name="hobit"> 篮球<br>
+日期:
+<input type="date" name="date"> <br>
+联系方式
+<input type="tel" > <br>
+隐藏域
+<input type="hidden" name="id"> <br>
+<!--下拉菜单-->
+籍贯
+<select name="籍贯"> 
+    <option>陕西省</option>
+    <option>黑龙江省</option>
+    <option>吉林省</option>
+</select><br>
+自我描述
+<!--
+    rows 指定多少行
+    cols 指定一行几个字符
+-->
+<textarea name="description" cols="30" rows="10"></textarea> <br>
+
+<input type="button" value="普通按钮" onclick=""/>
+<input type="submit" value="提交">
+<input type="reset" value="重置">
+</form>
+</body>
+</html>

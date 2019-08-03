@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表格标签</title>
+</head>
+<body>
+    <!--
+        表格标签:
+        table
+            表格的行 hr
+            没有列的概念 td 表中的单元格
+                        th 自动剧中并且加粗
+        常用的属性:
+            border: 指定边框大小
+            width/height: 表格宽高
+            align: 表格的对齐方式
+            bgColor: 背景色
+            cellspacing: 单元格和边框线之间的空隙
+            rowspan:行合并
+            colspan:列合并
+        表格标题标签
+            capation
+    -->
+    <table border="1px" width="300px" height="300px" align="center" bgColor="pink" cellspacing="0">
+        <caption>表格标签</caption>
+        <tr align="center">
+            <td>姓名</td>
+            <td>姓名</td>
+            <td>姓名</td>
+        </tr>
+        <tr align="center">
+            <td rowspan="2">姓名</td>
+            <td colspan="2">姓名</td>
+            <!--<td>班级</td>-->
+        </tr>
+        <tr align="center">
+            <!--<td>班级</td>-->
+            <td>
+                <table border="1" cellspacing="0" width="100%" height="100%">
+                    <tr>
+                        <th>456</th>
+                        <th>456</th>
+                        <th>456</th>
+                    </tr>
+                    <tr>
+                        <td>123</td>
+                        <td>123</td>
+                        <td>123</td>
+                    </tr>
+                    <tr>
+                        <td>123</td>
+                        <td>123</td>
+                        <td>123</td>
+                    </tr>
+                </table>
+            </td>
+            <td>姓名</td>
+        </tr>
+        <tr align="center">
+            <td>姓名</td>
+            <td>姓名</td>
+            <td>姓名</td>
+        </tr>
+    
+    </table>
+</body>
+</html>

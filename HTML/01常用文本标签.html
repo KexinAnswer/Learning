@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    <style type="text/css">
+        div{
+            border: 1px solid #0F0;
+        }
+        #d1{
+            background: #0F0;
+        }
+        #d2{
+            background: #F00;
+        }
+
+    </style>
+<body>
+    <!-- 标题标签-->
+    <h1>标题1</h1>
+    <h2>标题2</h2>
+    <h3>标题3</h3>
+    <h4>标题4</h4>
+    <h5>标题5</h5>
+    <h6>标题6</h6>
+    <h7>标题7</h7>  <!-- 没有效果-->
+    <!--换行标签-->
+    <br/>  
+    <!--段落标签  具有换行效果-->
+    <p>第一个段落</p>
+    <p>第二个段落</p>
+    <p>第三个段落</p>
+    <p>第四个段落</p>
+    <!--段落缩进标签-->
+    <blockquote>段段落缩进段落缩进段落缩进段落缩进段落缩进段落缩进段落缩进段落缩进段落缩进段落缩进段落缩进落缩进</blockquote>
+    <!--滚动标签
+        marquee  默认滚动方向：从右到左的滚动
+        属性：
+            behavior : 滚动方式
+                scroll 交替滚动    
+                slide: 滚动到某一边结束
+                alternate：来回滚动
+        给标签指定背景颜色 ： bgColor 属性（html 标签属性）
+                            background-color(CSS背景属性样式)
+                loop: 设置滚动次数
+                direction: 滚动方向 : left right 默认滚动从右到左
+                scrollamount: 设置滚动速度(设置正整数值)
+
+    -->
+    <marquee behavior="scroll" bgColor="#F00" scrollamount="20">火箭总冠军</marquee>
+    <marquee behavior="slide" bgColor="#0F0" scrollamount="20">火箭总冠军</marquee>
+    <marquee behavior="alternate" bgColor="#00F" scrollamount="20">火箭总冠军</marquee>
+    <!--原样输出标签-->
+    <pre>
+    123
+    456
+    </pre>
+    <pre>
+    function checkUsername(){
+        var i = document.getElementById("id");
+    }
+    </pre>
+    <a name="math"></a>
+    <!--上下标标签-->
+    数学公式 x^2 x<sup>2</sup> &nbsp;&nbsp; log2n log<sub>2</sub>n <br/>
+    <!--转义字符
+        &nbsp 空格
+        &copy © 版权所有
+        &reg 注册商标
+    -->
+    &copy;2019&reg;8-1<br/>
+    <!--
+        列表标签
+            有序列表 ol li (列表项)
+            无序列表 ul li (列表项)
+    -->
+    <hr/>
+    你喜欢的人物有哪些
+    <ul type="square">
+        <li>威少</li>
+        <li>威少</li>
+        <li>威少</li>
+        <li>威少</li>
+    </ul>
+    <hr/>
+
+    <ol type="1">
+        <li>雷霆</li>
+        <li>雷霆</li>
+        <li>雷霆</li>
+        <li>雷霆</li>
+        <li>雷霆</li>
+    </ol>
+    <!--组织架构列表
+        dl dt dd
+    -->
+    项目足迹架构的列表<br/>
+    <dl>
+        <dt>工程师</dt>
+        <dd>工程师1号</dd>
+        <dd>工程师2号</dd>
+        <dd>工程师3号</dd>
+        <dt>项目总监</dt>
+        <dd>项目总监1号</dd>
+        <dd>项目总监1号</dd>
+        <dd>项目总监1号</dd>
+    </dl>
+    <!--其他的文本标签
+        strong 标签 普通加粗标签
+        b标签: 带一种语义的粗体标签（签掉）
+    -->
+    <font color="F00" size="7">字体标签</font><br/>
+    <strong>加粗标签strong</strong><br/>
+    <b>也是加粗字体效果一样但是b标签带一种语义强调作用</b><br/>
+    <!--斜体标签
+        em 普通斜体标签
+        i 也是斜体标签带一种语义
+    -->
+    <em>斜体标签</em><br/>
+    <i>带语义的斜体标签</i><br/>
+    <!--
+        行内标签
+        <span>
+            表单验证会使用这个
+    -->
+    <span>span行内标签</span>
+    <!--块标签 div
+        网页布局的两种方式
+        早期的table布局
+        div+css 布局
+    -->
+    <div id="d1">div1</div>
+    <div id="d2">div2</div>
+    <!--剧中标签-->
+    <center>今天天气不错</center>
+</body>
+</html>
