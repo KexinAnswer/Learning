@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--
+        事件编程的三要素:
+            1) 事件源: 某个标签设置某个事件
+            2) 编写一个事件监听器: js 中定义一个函数
+            3) 注册/绑定事件监听器
+    -->
+    <!--编写事件监听器-->
+    <script>
+        function show(){
+            // js中DOM操作
+            // 获取图像的 img 对象
+            var img = document.getElementById("img1");
+            // 标签对象可以操作属性
+            img.style.display="block";
+        }
+        function hide(){
+            // js中DOM操作
+            // 获取图像的 img 对象
+            var img = document.getElementById("img1");
+            // 标签对象可以操作属性
+            img.style.display="none";
+        }
+
+    </script>
+</head>
+<body>
+    <img src="image/597926.jpg"  
+    style="display: none;" id="img1">
+    <br>
+    <!--注册监听-->
+    <input type="button" value="显示" onclick="show()">
+    <input type="button" value="隐藏" onclick="hide()">
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS</title>
+    <!--CSS内部使用样式-->
+    <style>
+        /*
+        a{
+            font-size: 30px;
+        }
+
+        */
+    </style>
+    <link rel="stylesheet" href="_css/01.css">
+</head>
+<body>
+   <!--
+       CSS使用方法有三种
+        1) 行内样式
+            弊端:
+                只能控制一个标签
+                在html标签中指定style 属性
+                    style="background-color:red border:"1" "
+        2) 内部样式 一次性控制多个标签
+            弊端: css 样式代码和html代码混合到一起不利于后期维护
+            在 head 标签中指定一个style标签
+            格式
+            选择器{
+                书写样式(样式库中存在的样式)
+                key:value
+            }
+        3) 外部样式
+            在css文件中定义一个独立的.css文件
+            引入外部css文件
+            在head标签中定义link标签 href="xxx.css rel="stylrsheet""
+   --> 
+   <!--行内样式-->
+   <a href="#" style="color:red; text-decoration:none">超链接1</a> <br>
+   <a href="">超链接2</a> <br>
+   <a href="#">超链接3</a> <br>
+</body>
+</html>

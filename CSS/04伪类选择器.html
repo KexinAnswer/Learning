@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css之伪类选择器</title>
+    <!--
+        伪类选择器
+        link状态: 鼠标为访问过的状态
+        hover状态: 鼠标经过的状态
+        active状态: 鼠标激活状态 (点击了标签，但是没有松开)
+        visited状态: 鼠标访问过的状态(点击了，并且松开了)
+
+    -->
+
+    <style>
+        a:link{
+            font-size: 20px;
+            color:blue;
+        }
+        a:visited{
+            font-size: 50px;
+            color:green;
+        }
+        a:hover{
+            font-size: 30px;
+            color:rebeccapurple;
+            text-decoration: none;
+        }
+        a:active{
+            font-size: 40px;
+            color:red;
+        }
+        
+        /*
+        提示: 在CSS定义中， a:hover 必须被置于 a:link 和 a:visited 之后才是有效的
+        在表格中，鼠标每经过一行，除过表头之外，背景色变为蓝色
+        */
+        table tr td:hover{
+            background-color: blue;
+            /*cursor:pointer
+            鼠标经过单元格变小手
+            */
+        }
+    </style>
+</head>
+<body>
+    <a href="02图片的显示和 要隐藏.html">图片链接</a><br>
+    <table border="1" align="center" width="300px" height="200px" cellspacing="0">
+        <thead>     
+        <tr>
+            <th>姓名</th>
+            <th>姓名</th>
+            <th>姓名</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>姓名</td>
+            <td>姓名</td>
+            <td>姓名</td>
+        </tr>
+        <tr>
+            <td>姓名</td>
+            <td>姓名</td>
+            <td>姓名</td>
+        </tr>
+    </tbody>
+    </table>
+</body>
+</html>

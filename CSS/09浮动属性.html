@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #d1{
+            width: 200px;
+            height:200px;
+            background-color: red;
+            border: 1px solid red;
+            /*浮动属性
+            float: left/right
+            一旦某个元素设置了浮动，不管是左浮动，还是有浮动，都会脱离当前文档流
+            (前提是后面的元素没有设置浮动) 后面的元素就会移动到刚才元素的位置
+            */
+            float: left;
+        }
+        #d2{
+            width: 200px;
+            height:200px;
+            background-color :green;
+            border: 1px solid green;
+        }
+        #d3{
+            width: 200px;
+            height:200px;
+            background-color: blue;
+            border: 1px solid blue;
+        }
+        #clear{
+            /*第一个div是浮动的
+            想让后一个不浮动
+            clear属性: both;(两边都不浮动)
+            */
+            clear:both;
+        }
+    </style>
+</head>
+<body>
+    <div id="d1">div1</div>
+    <div id="clear"></div>
+    <div id="d2">div2</div>
+    <div id="d3">div3</div>
+</body>
+</html>
