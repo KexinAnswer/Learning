@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function checkUserName(){
+            // 用户名的校验规则: 由4-14位的数字或者字母组成
+            // document.getElementById("id") 获取标签对象
+            var username = document.getElementById("username");
+            // 获取内容
+            username = username.value;
+            // 定义一个正则规则
+            var reg = /^[0-9a-zA-Z]{4,14}$/i
+            if(!reg.test(username)){
+                alert("用户名不正确");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <!--
+        onsubmit 事件 表单是否提交成功
+            返回 true 可以提交
+            返回 false 提交失败
+    -->
+ <form action="backend.html" method="POST" onsubmit="return checkUserName()">
+用户名: <input type="text" id="username" name="name"> <br>
+<input type="submit" value="注册">
+ </form>   
+</body>
+</html>

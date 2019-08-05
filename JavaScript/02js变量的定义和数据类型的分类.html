@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js变量定义和数据类型的分类</title>
+    <script>
+        /*
+        1) 在js中，定义变量使用var定义 对象的定义也用 var
+        2) 使用var定义变量，同一个变量可以被定义多次，后面的定义的变量内容会将前面覆盖 (js弱类型语言)
+        3) 在 js 中 使用 var 定义任何类型的数据，var 可以省略不写
+
+        查看数据类型 typeof
+        数据类型的分类
+            1) 无论是整数还是小数， number类型--->内存中 : 内存中默认转换为 Number (js内置对象)
+            2) 无论是字符还是字符串，String类型 内置对象
+            3) boolean ---> Boolean 内置对象 
+            4) object类型 ---> 在 js 中 代表所有对象的模板
+        */
+
+        var a = 10;  // var a = new Number(20);
+        var b = 3.1415926;
+        var c = "hello";  // new c = new String("hello");
+        var d = 'A';
+        var e = true;
+        var f = new Object();
+        document.write(a+typeof(a)+"<br>");
+        document.write(b+typeof(b)+"<br>");
+        document.write(c+typeof(c)+"<br>");
+        document.write(d+typeof(d)+"<br>");
+        document.write(e+typeof(e)+"<br>");
+        document.write(f+typeof(f)+"<br>");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

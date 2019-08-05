@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js类型转换函数</title>
+
+    <script>
+        /*
+        string ---> 整数
+            parseInt(变量名)
+            转换时 遇到非数值类型的字符停止转换
+        stirng ---> 小数
+            parseFloat(变量名)
+        */
+        
+        var a = "10"
+        document.write(a+typeof(a)+"<br>");
+        a = parseInt(a);
+        document.write(a+typeof(a)+"<br>");
+
+        var b = "3.1415926";
+        document.write(b+typeof(b)+"<br>");
+        b =parseFloat(b);
+        document.write(b+typeof(b)+"<br>");
+    </script>
+</head>
+<body>
+
+</body>
+</html>
